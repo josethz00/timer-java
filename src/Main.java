@@ -5,15 +5,12 @@ import java.util.concurrent.*;
 
 public class Main {
 
-    public static void main(String args[]) throws IOException {
-
-        ScheduledExecutorService interval = Executors.newScheduledThreadPool(1);
-
-        interval.scheduleAtFixedRate(
-          new Runnable() {
-              public void run() {
-                  System.out.println(new SimpleDateFormat("HH:mm:ss").format(new Date()));
-              }
-        }, 1000, 1000, TimeUnit.MILLISECONDS);
+    public static void main(String args[]) throws IOException, InterruptedException {
+        TimeUnit time = TimeUnit.SECONDS;
+        
+        for(;;) {
+        	time.sleep(1L);
+        	System.out.println(new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        }
     }
 }
